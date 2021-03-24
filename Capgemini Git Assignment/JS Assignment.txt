@@ -1,0 +1,100 @@
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git branch js-assignment
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git checkout js-assignment
+Switched to branch 'js-assignment'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ cd ..
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ ls
+ Assignments/        index.html                New.css
+ Capgemini-master/  'Johncena - Chrome.lnk'*   New.js
+ desktop.ini        'Manav - Chrome.lnk'*     'Visual Studio Code.lnk'*
+'Git Assignments'/  'Microsoft Teams.lnk'*
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ cp New.js Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop (master)
+$ cd Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ git commit -m "New Js file added"
+[js-assignment c4c1447] New Js file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 New.js
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ git checkout master
+Switched to branch 'master'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git commit -m "New Update in master"
+[master a63bbb5] New Update in master
+ 2 files changed, 6 insertions(+)
+ create mode 100644 ~
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git checkout js-assignment
+Switched to branch 'js-assignment'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ git commit -m "New Update in js-assignment"
+[js-assignment cd1a7b1] New Update in js-assignment
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (js-assignment)
+$ git checkout master
+qSwitched to branch 'master'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git merge js-assignment
+Auto-merging README.txt
+CONFLICT (content): Merge conflict in README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git commit -m "Merging"
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+U       README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git commit -m "Merging"
+[master 5de36df] Merging
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git merge js-assignment
+Already up to date.
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git branch -D js-assignment
+Deleted branch js-assignment (was cd1a7b1).
+

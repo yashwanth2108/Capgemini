@@ -1,0 +1,109 @@
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ mkdir Assignments
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ cd Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments
+$ touch README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments
+$ vi README.txt
+
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments
+$ git init
+Initialized empty Git repository in C:/Users/MVERMA/OneDrive - Capgemini/Desktop/Assignments/.git/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git add .
+warning: LF will be replaced by CRLF in README.txt.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git commit -m "Readme File Added"
+[master (root-commit) 4433a87] Readme File Added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git branch html-assignments
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git checkout html-assignments
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git status
+On branch html-assignments
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   index.html
+
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git commit -m "HTML Assignment"
+[html-assignments 0472636] HTML Assignment
+ 1 file changed, 6 insertions(+)
+ create mode 100644 index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ vi index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git add .
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in ~.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git commit -m "updated HTML Assingment"
+[html-assignments 079fd7a] updated HTML Assingment
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 ~
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git add .
+warning: LF will be replaced by CRLF in README.txt.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git commit -m "New Readme"
+[master 1b4f685] New Readme
+ 3 files changed, 7 insertions(+)
+ create mode 100644 1
+ create mode 100644 index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git checkout html-assignments
+Switched to branch 'html-assignments'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ vi index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (html-assignments)
+$ git commit -m "New Update"
+[html-assignments 22c16cc] New Update
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git commit -m "Merge"
+[master dd68c64] Merge
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git merge html-assignments
+Already up to date.
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git branch -D html-assignments
+Deleted branch html-assignments (was 22c16cc).

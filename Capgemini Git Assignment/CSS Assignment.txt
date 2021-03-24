@@ -1,0 +1,114 @@
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ mkdir Assignments
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ cd Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git branch css-assignment
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git checkout css-assignment
+Switched to branch 'css-assignment'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ cd ..
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ cp New.css Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop
+$ cd Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git commit -m "Css-assignment"
+[css-assignment f56d284] Css-assignment
+ 2 files changed, 1 insertion(+)
+ create mode 100644 New.css
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git commit -m "Css-assignment"
+[css-assignment f56d284] Css-assignment
+ 2 files changed, 1 insertion(+)
+ create mode 100644 New.css
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git checkout master
+Switched to branch 'master'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git commit -m "New Css added"
+[master 8116366] New Css added
+ 1 file changed, 1 insertion(+)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git checkout css-assignment
+Switched to branch 'css-assignment'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ vi new.css
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git add .
+warning: LF will be replaced by CRLF in New.css.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git commit -m "new Updated css"
+[css-assignment 28e5591] new Updated css
+ 1 file changed, 2 insertions(+)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (css-assignment)
+$ git checkout master
+Switched to branch 'master'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git merge css-assignment
+Auto-merging README.txt
+CONFLICT (content): Merge conflict in README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        new file:   New.css
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   README.txt
+
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master|MERGING)
+$ git commit -m "Merging"
+[master 6bba702] Merging
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git merge css-assignment
+Already up to date.
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Assignments (master)
+$ git branch -D css-assignment
+Deleted branch css-assignment (was 28e5591).

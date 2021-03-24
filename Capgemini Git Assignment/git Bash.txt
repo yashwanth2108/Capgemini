@@ -1,0 +1,144 @@
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments (master)
+$ mkdir project_dir
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments (master)
+$ cd project_dir/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git init
+Initialized empty Git repository in C:/Users/MVERMA/OneDrive - Capgemini/Desktop/Git Assignments/project_dir/.git/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git --version
+git version 2.24.1.windows.2
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ touch index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git add index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git commit -m "Adding index.html"
+[master (root-commit) 1004c3d] Adding index.html
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ vi index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ touch info.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git rm --cached info.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git add .
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git commit -m "Updated File"
+[master 619a0c2] Updated File
+ 1 file changed, 5 insertions(+)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git log
+commit 619a0c2fd1ca99314821d275bc6e3f56da203283 (HEAD -> master)
+Author: Manav Verma <vmanav1999@gmail.com>
+Date:   Wed Mar 24 12:49:31 2021 +0530
+
+    Updated File
+
+commit 1004c3d834ed0837f2c312faf8ce2de6c27537ec
+Author: Manav Verma <vmanav1999@gmail.com>
+Date:   Wed Mar 24 12:39:32 2021 +0530
+
+    Adding index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ vi index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git reset --soft HEAD~1
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git add .
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git commit -m "revert changes"
+[master 6aa50fc] revert changes
+ 1 file changed, 5 insertions(+)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git reset --soft HEAD~1
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ alias my_add='git add'
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ my_add index.html
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git commit -m "Last Commit"
+[master b927149] Last Commit
+ 1 file changed, 5 insertions(+)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Git Assignments/project_dir (master)
+$ git reset --soft HEAD~1

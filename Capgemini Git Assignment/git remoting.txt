@@ -1,0 +1,53 @@
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16 (main)
+$ git remote add origin https://github.com/vManav123/Fresher-Batch---Oct-16.git
+
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16 (main)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 344 bytes | 86.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To https://github.com/vManav123/Fresher-Batch---Oct-16
+   adc448f..7df8c36  main -> main
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16/Assignments (master)
+$ vi README.txt
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16/Assignments (master)
+$ cd ..
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16 (main)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16 (main)
+$ git commit -m "new"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+        modified:   Assignments (modified content)
+
+no changes added to commit
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16 (main)
+$ cd Assignments/
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16/Assignments (master)
+$ git add .
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16/Assignments (master)
+$ git commit -m "New"
+[master 4a36f67] New
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16/Assignments (master)
+$ cd ..
+
+mverma@LIN24003914 MINGW64 ~/OneDrive - Capgemini/Desktop/Fresher-Batch---Oct-16 (main)
+$ git push
+Everything up-to-date
+

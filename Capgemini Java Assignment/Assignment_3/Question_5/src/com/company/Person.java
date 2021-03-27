@@ -1,6 +1,8 @@
 package com.company;
 
-public class Person implements Comparable<Person> {
+import java.util.Objects;
+
+public class Person{
     int weight;
     int height;
     String name;
@@ -36,21 +38,15 @@ public class Person implements Comparable<Person> {
     }
 
     @Override
-    public int compareTo(Person o) {
-        if(this.getWeight()>o.getWeight())
-            return 1;
-        else if(this.getWeight()==o.getWeight())
-        {
-            if(this.getHeight()>o.getHeight())
-                return 1;
-            else if(this.getHeight()==o.getHeight())
-            {
-                return 0;
-            }
-            else
-                return -1;
-        }
-        else
-            return -1;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getWeight() == person.getWeight() && getHeight() == person.getHeight() && getName().equals(person.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getWeight(), getHeight(), getName());
     }
 }

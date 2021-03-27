@@ -34,4 +34,13 @@ public class Transaction {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "trader=" + trader +
+                ", year=" + year +
+                ", value=" + value +
+                '}';
+    }
 }

@@ -1,6 +1,5 @@
 package com.company;
 
-import org.w3c.dom.ls.LSInput;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -48,12 +47,11 @@ public class Main {
         System.out.println();
         // Display the fruit names of low calories fruits i.e. calories < 100 sorted in descending order of calories.
 
-        List<Fruit> L = fruits.stream().filter(p -> p.getCalories() < 100).sorted(new Comparator<Fruit>() {
-            @Override
-            public int compare(Fruit o1, Fruit o2) {
-                return o1.getCalories() > o2.getCalories() ? 1 : -1;
-            }
-        }).collect(Collectors.toList());
+        List<Fruit> L =   fruits.stream()
+                                .filter(p -> p.getCalories() < 100)
+                                .sorted((Fruit o1, Fruit o2) -> o1.getCalories() > o2.getCalories() ? 1 : -1)
+                                .collect(Collectors.toList());
+
         L.forEach(System.out::println);
 
         // Display color wise list of fruit names.
@@ -64,12 +62,9 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        fruits.stream().sorted(new Comparator<Fruit>() {
-            @Override
-            public int compare(Fruit o1, Fruit o2) {
-                return o1.getColor().compareTo(o2.getColor());
-            }
-        }).forEach(p -> System.out.println(p.getName()));
+          fruits.stream()
+                .sorted(Comparator.comparing(Fruit::getColor))
+                .forEach(p -> System.out.println(p.getName()));
 
         // Display only RED color fruits sorted as per their price in ascending order.
 
@@ -79,12 +74,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        fruits.stream().filter(p -> p.getColor().equalsIgnoreCase("Red")).sorted(new Comparator<Fruit>() {
-            @Override
-            public int compare(Fruit o1, Fruit o2) {
-                return o1.getPrice() < o2.getPrice() ? 1 : -1;
-            }
-        }).forEach(System.out::println);
+          fruits.stream()
+                .filter(p -> p.getColor().equalsIgnoreCase("Red"))
+                .sorted((Fruit o1, Fruit o2) -> o1.getPrice() < o2.getPrice() ? 1 : -1)
+                .forEach(System.out::println);
 
 
         // Find out the newsld which has received maximum comments.
@@ -95,7 +88,9 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        Map<Integer,List<News>> groupByNewsId = news.stream().collect(Collectors.groupingBy(News::getNewsId));
+        Map<Integer,List<News>> groupByNewsId = news.stream()
+                                                    .collect(Collectors.groupingBy(News::getNewsId));
+
         int max = 0 ,  newsId = 0;
         for (Map.Entry<Integer,List<News>> M : groupByNewsId.entrySet())
         {
@@ -115,7 +110,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        long x = news.stream().filter(p -> p.getComment().contains("Budget")).count();
+        long x = news.stream()
+                     .filter(p -> p.getComment().contains("Budget"))
+                     .count();
+
         System.out.println(x);
 
         // Find out which user has posted maximum comments
@@ -126,7 +124,9 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        Map<String,List<News>> groupByCommentByUser = news.stream().collect(Collectors.groupingBy(News::getCommentByUser));
+        Map<String,List<News>> groupByCommentByUser = news.stream()
+                                                          .collect(Collectors.groupingBy(News::getCommentByUser));
+
         int max1 = 0 ;
         String userName = "";
         for (Map.Entry<String,List<News>> M : groupByCommentByUser.entrySet())
@@ -160,12 +160,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        transactions.stream().filter(p -> p.getYear() == 2011).sorted(new Comparator<Transaction>() {
-            @Override
-            public int compare(Transaction o1, Transaction o2) {
-                return o1.getValue() < o2.getValue() ? 1 : -1;
-            }
-        }).forEach(System.out::println);
+        transactions.stream()
+                    .filter(p -> p.getYear() == 2011)
+                    .sorted((Transaction o1, Transaction o2) -> (o1.getValue() < o2.getValue() ? 1 : -1))
+                    .forEach(System.out::println);
 
         // What are all the unique cities where the traders work?
 
@@ -175,7 +173,8 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        Map<String,List<Transaction>> groupByCities = transactions.stream().collect(Collectors.groupingBy(p -> p.getTrader().getCity()));
+        Map<String,List<Transaction>> groupByCities = transactions.stream()
+                                                                  .collect(Collectors.groupingBy(p -> p.getTrader().getCity()));
         for (Map.Entry<String,List<Transaction>> M : groupByCities.entrySet())
         {
             System.out.println(M.getKey());
@@ -189,12 +188,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        transactions.stream().filter(p -> p.getTrader().getCity().equalsIgnoreCase("Pune")).sorted(new Comparator<Transaction>() {
-            @Override
-            public int compare(Transaction o1, Transaction o2) {
-                return o1.getTrader().getName().compareTo(o2.getTrader().getName());
-            }
-        }).forEach(System.out::println);
+        transactions.stream()
+                    .filter(p -> p.getTrader().getCity().equalsIgnoreCase("Pune"))
+                    .sorted(Comparator.comparing((Transaction o) -> o.getTrader().getName()))
+                    .forEach(System.out::println);
 
         // Return a string of all traders names sorted alphabetically.
 
@@ -204,12 +201,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        String s  = transactions.stream().sorted(new Comparator<Transaction>() {
-            @Override
-            public int compare(Transaction o1, Transaction o2) {
-                return o1.getTrader().getName().compareTo(o2.getTrader().getName());
-            }
-        }).map(p->p.getTrader().getName()).collect(Collectors.joining(" | "));
+        String s  = transactions.stream()
+                                .sorted(Comparator.comparing((Transaction o) -> o.getTrader().getName()))
+                                .map(p->p.getTrader().getName())
+                                .collect(Collectors.joining(" | "));
 
         System.out.println(s);
 
@@ -222,7 +217,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        transactions.stream().filter(p->p.getTrader().getCity().equalsIgnoreCase("Indore")).map(p->p.getTrader().getName()).forEach(System.out::println);
+        transactions.stream()
+                    .filter(p->p.getTrader().getCity().equalsIgnoreCase("Indore"))
+                    .map(p->p.getTrader().getName())
+                    .forEach(System.out::println);
 
         // Print all transactions' values from the traders living in Delhi.
 
@@ -232,7 +230,9 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        transactions.stream().filter(p->p.getTrader().getCity().equalsIgnoreCase("delhi")).forEach(System.out::println);
+        transactions.stream()
+                    .filter(p->p.getTrader().getCity().equalsIgnoreCase("delhi"))
+                    .forEach(System.out::println);
 
         // What's the highest value of all the transactions?
 
@@ -242,12 +242,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        transactions.stream().sorted(new Comparator<Transaction>() {
-            @Override
-            public int compare(Transaction o1, Transaction o2) {
-                return o1.getValue() < o2.getValue() ? 1 : -1;
-            }
-        }).limit(1).forEach(System.out::println);
+        transactions.stream()
+                    .sorted((Transaction o1, Transaction o2) -> o1.getValue() < o2.getValue() ? 1 : -1)
+                    .limit(1).
+                    forEach(System.out::println);
 
         // Find the transaction with the smallest value
 
@@ -258,12 +256,7 @@ public class Main {
         System.out.println();
 
 
-        transactions.stream().sorted(new Comparator<Transaction>() {
-            @Override
-            public int compare(Transaction o1, Transaction o2) {
-                return o1.getValue() > o2.getValue() ? 1 : -1;
-              }
-        }).limit(1).forEach(System.out::println);
+        transactions.stream().sorted((Transaction o1, Transaction o2) -> o1.getValue() > o2.getValue() ? 1 : -1).limit(1).forEach(System.out::println);
 
 
 

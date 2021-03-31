@@ -2,12 +2,12 @@ package com.company;
 
 class Employee
 {
-    int Emp_id;
-    String Emp_name;
-    int Emp_age;
-    String Emp_Type;
-    double salary;
-    int bonus;
+    private int Emp_id;
+    private String Emp_name;
+    private int Emp_age;
+    private String Emp_Type;
+    private double salary;
+    private int bonus;
 
     public int getEmp_id() {
         return Emp_id;

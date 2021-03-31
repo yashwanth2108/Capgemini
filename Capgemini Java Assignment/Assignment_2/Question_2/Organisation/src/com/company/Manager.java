@@ -19,7 +19,7 @@ public class Manager extends Employee
 
     void FinalSalary()
     {
-        super.salary =  super.getSalary()+super.getBonus()+getIncentive();
+        super.setSalary(super.getSalary()+super.getBonus()+getIncentive());
     }
     public String toString()
     {

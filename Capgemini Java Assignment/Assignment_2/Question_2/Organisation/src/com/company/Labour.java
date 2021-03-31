@@ -33,6 +33,6 @@ public class Labour extends Employee
 
     void FinalSalary()
     {
-        super.salary =  super.getSalary()+super.getBonus()+getOverTime_Benifit_per_hour()*getOvertime_hours();
+        super.setSalary(super.getSalary()+super.getBonus()+getOverTime_Benifit_per_hour()*getOvertime_hours());
     }
 }

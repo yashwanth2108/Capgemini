@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -24,7 +23,6 @@ public class Main {
 
             String[] allFiles = directoryPath.list();
 
-            String[] A;
             int Emp_id;
             String Emp_name;
             int Emp_age;
@@ -33,6 +31,7 @@ public class Main {
             int bonus;
 
             int i=0;
+            assert allFiles != null;
             for(String s : allFiles)
             {
                 String testcase = Files.readString(Path.of(directoryPath+"\\"+s));

@@ -1,4 +1,4 @@
-Java Notes
+/Java Notes
 
 Transient Keyword : it is used when u don't want to save value of any variable at the time serialization , it will give default values
 
@@ -22,9 +22,34 @@ Interfaces : Consumer , Predicate , Supplier , Function
 Predicate : which allows only one Abstract method within the Interface scope.  test()
 
 
-Development Tools :
+Development Tools
 
 PMD
 FindBugs
 CheckStyle
-SonarQue
+SonarQube
+Jacoco
+
+Java 11 New Features
+
+List.toArray( String[]::new )
+Files.readString( Path.of(path) )
+Files.writeString( Path.of(path) , "Write text here",options)
+HttpRequest , HttpClient , HttpResponse Class
+Local Type : var
+Optional.isEmpty()
+java Demo.java  ->  run without .class file
+String.isBlank()
+String.lines()
+String.Strip()
+String.stripLeading()
+String.stripTrailing()
+String.Repeat(number)
+
+JUnit Testing
+
+dependencies :
+
+junit-jupiter-api
+junit-jupiter-engine
+junit-vintage-engine

@@ -10,6 +10,10 @@ public class Main {
         System.out.println("Enter a Number : ");
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
+        System.out.println(checkArmstrong(n));
+    }
+
+    public static String checkArmstrong(int n) {
         int k = n;
         int sum =0;
         while(k>0)
@@ -19,9 +23,10 @@ public class Main {
             k = k/10;
         }
         if(sum == n)
-            System.out.println("It is an Armstrong Number : "+n);
+            return "a Armstrong Number";
         else
-            System.out.println("It is not an Armstrong Number : "+n);
+            return "Not a Armstrong Number";
     }
+
 
 }

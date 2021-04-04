@@ -15,8 +15,7 @@ public class Main {
         System.out.println("Want to run test cases");
         Scanner sc = new Scanner(System.in);
         String t = sc.next();
-        if(t.equalsIgnoreCase("yes"))
-        {
+        if (t.equalsIgnoreCase("yes")) {
             String Directory = "C:\\Users\\MVERMA\\Capgemini\\Capgemini Java Assignment\\Assignment_2\\Question_2\\Organisation\\out\\Test Cases";
 
             File directoryPath = new File(Directory);
@@ -30,11 +29,10 @@ public class Main {
             double salary;
             int bonus;
 
-            int i=0;
+            int i = 0;
             assert allFiles != null;
-            for(String s : allFiles)
-            {
-                String testcase = Files.readString(Path.of(directoryPath+"\\"+s));
+            for (String s : allFiles) {
+                String testcase = Files.readString(Path.of(directoryPath + "\\" + s));
                 String[] input = testcase.split(",");
                 Emp_id = Integer.parseInt(input[0]);
                 Emp_name = input[1];
@@ -43,25 +41,22 @@ public class Main {
                 salary = Double.parseDouble(input[4]);
                 bonus = Integer.parseInt(input[5]);
 
-                if(Emp_Type.equalsIgnoreCase("Manager"))
-                {
+                if (Emp_Type.equalsIgnoreCase("Manager")) {
                     int incentive = Integer.parseInt(input[6]);
-                    Manager M = new Manager(Emp_id,Emp_name,Emp_age,Emp_Type,salary,bonus,incentive);
+                    Manager M = new Manager(Emp_id, Emp_name, Emp_age, Emp_Type, salary, bonus, incentive);
                     M.FinalSalary();
 
-                    System.out.println("Your all Details : "+M.toString());
-                }
-                else
-                {
+                    System.out.println("Your all Details : " + M.toString());
+                } else {
                     int Overtime = Integer.parseInt(input[6]);
 
-                    Labour L = new Labour(Emp_id,Emp_name,Emp_age,Emp_Type,salary,bonus,Overtime);
+                    Labour L = new Labour(Emp_id, Emp_name, Emp_age, Emp_Type, salary, bonus, Overtime);
                     L.FinalSalary();
 
-                    System.out.println("Your all Details : "+L.toString());
+                    System.out.println("Your all Details : " + L.toString());
                 }
                 System.out.println();
-                System.out.println("Test Case "+ (++i) + " Passed Successfully ");
+                System.out.println("Test Case " + (++i) + " Passed Successfully ");
                 System.out.println();
                 System.out.println();
             }
@@ -70,16 +65,14 @@ public class Main {
         }
 
 
-        while(true)
-        {
+        while (true) {
             System.out.println();
             System.out.println();
             System.out.println("Welcome To Capgemini");
             System.out.println();
             System.out.println("want to add Employee Details then say : Yes or No");
             String s = sc.next();
-            if(s.equals("No") || s.equals("no") || s.equals("NO"))
-            {
+            if (s.equals("No") || s.equals("no") || s.equals("NO")) {
                 break;
             }
 
@@ -102,37 +95,29 @@ public class Main {
             System.out.println("2. Labour  ");
             System.out.print("select one of them by using number : ");
             int chk = sc.nextInt();
-            if(chk == 1)
-            {
+            if (chk == 1) {
                 int incentive = 11000;
                 String Emp_Type = "Manager";
 
-                Manager M = new Manager(Emp_id,Emp_name,Emp_age,Emp_Type,salary,bonus,incentive);
+                Manager M = new Manager(Emp_id, Emp_name, Emp_age, Emp_Type, salary, bonus, incentive);
                 M.FinalSalary();
-                System.out.println("Your Salary : "+M.getSalary());
+                System.out.println("Your Salary : " + M.getSalary());
 
-                System.out.println("Your all Details : "+M.toString());
-            }
-            else
-            {
+                System.out.println("Your all Details : " + M.toString());
+            } else {
                 System.out.print("Enter the Overtime of Your Job : ");
                 int Overtime = sc.nextInt();
                 String Emp_Type = "Labour";
 
-                Labour L = new Labour(Emp_id,Emp_name,Emp_age,Emp_Type,salary,bonus,Overtime);
+                Labour L = new Labour(Emp_id, Emp_name, Emp_age, Emp_Type, salary, bonus, Overtime);
                 L.FinalSalary();
-                System.out.println("Your Salary : "+L.getSalary());
+                System.out.println("Your Salary : " + L.getSalary());
 
-                System.out.println("Your all Details : "+L.toString());
+                System.out.println("Your all Details : " + L.toString());
             }
             System.out.println("Details Submitted");
 
         }
-
-
-
-
-
 
 
     }

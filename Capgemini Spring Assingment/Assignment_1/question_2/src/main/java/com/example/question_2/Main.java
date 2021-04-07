@@ -13,7 +13,7 @@ import java.util.Set;
 public class Main {
 
     private static List<Question> questionList;
-    private static Map<Integer,Question> questionMap;
+    private static Map<String,Question> questionMap;
     private static Set<Question> questionSet;
 
     public static List<Question> returnList()
@@ -24,7 +24,7 @@ public class Main {
     {
         return questionSet;
     }
-    public static Map<Integer,Question> returnMap()
+    public static Map<String,Question> returnMap()
     {
         return questionMap;
     }
@@ -44,8 +44,15 @@ public class Main {
         {
             System.out.println(iterator.next());
         }
+        System.out.println();
+        questions = applicationContext.getBean("map",Questions.class);
+        questionMap = questions.getQuestionMap();
 
-
+        iterator = questionMap.entrySet().iterator();
+        while (iterator.hasNext())
+        {
+            System.out.println("Key : "+iterator.next());
+        }
     }
 
 }

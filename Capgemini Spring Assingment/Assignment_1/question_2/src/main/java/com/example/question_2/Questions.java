@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Questions {
     private List<Question> questionList;
-    private Map<Integer,Question> questionMap;
+    private Map<String,Question> questionMap;
     private Set<Question> questionSet;
 
 
@@ -22,11 +22,15 @@ public class Questions {
         questionSet=setProperty;
     }
 
-    public Map<Integer, Question> getQuestionMap() {
+    public Map<String, Question> getQuestionMap() {
         return questionMap;
     }
 
     public Set<Question> getQuestionSet() {
         return questionSet;
+    }
+
+    public void setMapProperty(Map mapProperty) {
+        questionMap=mapProperty;
     }
 }

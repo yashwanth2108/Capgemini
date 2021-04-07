@@ -25,12 +25,23 @@
         </property>
     </bean>
 
+    <bean id="map" class="com.example.question_2.Questions">
+        <property name="mapProperty">
+            <map key-type="java.lang.String" value-type="com.example.question_2.Question">
+                <entry key="question_1" value-ref="question_1"/>
+                <entry key="question_2" value-ref="question_2"/>
+                <entry key="question_3" value-ref="question_3"/>
+                <entry key="question_4" value-ref="question_4"/>
+            </map>
+        </property>
+    </bean>
+
 
 
     <bean id="question_2" class="com.example.question_2.Question">
 
         <constructor-arg index="0" value="123123"/>
-        <constructor-arg index="1" value="Earth is round or flat"/>
+        <constructor-arg index="1" value="Earth is round or flat ?"/>
         <constructor-arg index="2" value="Earth is round"/>
     </bean>
     <bean id="question_1" class="com.example.question_2.Question">
@@ -40,12 +51,12 @@
     </bean>
     <bean id="question_3" class="com.example.question_2.Question">
         <constructor-arg index="0" value="123126"/>
-        <constructor-arg index="1" value="Apple Colour"/>
+        <constructor-arg index="1" value="Apple Colour ?"/>
         <constructor-arg index="2" value="is Red"/>
     </bean>
     <bean id="question_4" class="com.example.question_2.Question">
         <constructor-arg index="0" value="123127"/>
-        <constructor-arg index="1" value="Yoga is Beneficial"/>
+        <constructor-arg index="1" value="Yoga is Beneficial ?"/>
         <constructor-arg index="2" value="Yes, it is"/>
     </bean>
 

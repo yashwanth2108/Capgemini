@@ -15,56 +15,44 @@
     <bean id="bankAccountRepositoriesImpl" class="com.example.question_3.BankAccountRepositoryImpl">
         <property name="repository">
             <map>
-                <entry key-ref="account_1_Id" value-ref="account_1"/>
-                <entry key-ref="account_2_Id" value-ref="account_2"/>
-                <entry key-ref="account_3_Id" value-ref="account_3"/>
-                <entry key-ref="account_4_Id" value-ref="account_4"/>
-                <entry key-ref="account_5_Id" value-ref="account_5"/>
+                <entry key="123123" value-ref="account_1"/>
+                <entry key="123124" value-ref="account_2"/>
+                <entry key="123122" value-ref="account_3"/>
+                <entry key="123121" value-ref="account_4"/>
+                <entry key="123120" value-ref="account_5"/>
             </map>
         </property>
     </bean>
 
 
-    <!-- Account Ids -->
-    <bean id="account_1_Id" class="com.example.question_3.BankAccountIdList">
-        <property  name="accountId" value="123123"/>
-    </bean>
-    <bean id="account_2_Id" class="com.example.question_3.BankAccountIdList">
-        <property name="accountId" value="123124"/>
-    </bean>
-    <bean id="account_3_Id" class="com.example.question_3.BankAccountIdList">
-        <property name="accountId" value="123122"/>
-    </bean>
-    <bean id="account_4_Id" class="com.example.question_3.BankAccountIdList">
-        <property name="accountId" value="123121"/>
-    </bean>
-    <bean id="account_5_Id" class="com.example.question_3.BankAccountIdList">
-        <property name="accountId" value="123120"/>
-    </bean>
-
 
     <!-- Bank Accounts -->
-    <bean id="account_1" class="com.example.question_3.BankAccount" parent="account_1_Id">
+    <bean id="account_1" class="com.example.question_3.BankAccount">
+        <property  name="accountId" value="123123"/>
         <property name="accountHolderName" value="Manav Verma"/>
         <property name="accountType" value="Saving"/>
         <property name="accountBalance" value="232000"/>
     </bean>
-    <bean id="account_2" class="com.example.question_3.BankAccount" parent="account_2_Id">
+    <bean id="account_2" class="com.example.question_3.BankAccount" >
+        <property  name="accountId" value="123124"/>
         <property name="accountHolderName" value="Priyam Verma"/>
         <property name="accountType" value="Saving"/>
         <property name="accountBalance" value="235000"/>
     </bean>
-    <bean id="account_3" class="com.example.question_3.BankAccount" parent="account_3_Id">
+    <bean id="account_3" class="com.example.question_3.BankAccount" >
+        <property  name="accountId" value="123122"/>
         <property name="accountHolderName" value="Rahul Verma"/>
         <property name="accountType" value="Saving"/>
         <property name="accountBalance" value="231000"/>
     </bean>
-    <bean id="account_4" class="com.example.question_3.BankAccount" parent="account_4_Id">
+    <bean id="account_4" class="com.example.question_3.BankAccount" >
+        <property  name="accountId" value="123121"/>
         <property name="accountHolderName" value="Rishabh Verma"/>
         <property name="accountType" value="Saving"/>
         <property name="accountBalance" value="532000"/>
     </bean>
-    <bean id="account_5" class="com.example.question_3.BankAccount" parent="account_5_Id">
+    <bean id="account_5" class="com.example.question_3.BankAccount" >
+        <property  name="accountId" value="123120"/>
         <property name="accountHolderName" value="Rachit Verma"/>
         <property name="accountType" value="Saving"/>
         <property name="accountBalance" value="212000"/>

@@ -5,21 +5,30 @@ import java.util.Map;
 
 public class BankAccountRepositoryImpl implements BankAccountRepository{
 
-    Map<BankAccountIdList,BankAccount> bankAccountMap = new HashMap<BankAccountIdList, BankAccount>();
+    Map<Long,BankAccount> bankAccountMap = new HashMap<Long, BankAccount>();
 
 
     @Override
     public double getBalance(long accountId) {
-        return 0;
+        if(bankAccountMap.containsKey(accountId))
+            return bankAccountMap.get(accountId).getAccountBalance();
+        System.out.println("There is no Account Id Exist");
+        return -1;
     }
 
     @Override
     public double updateBalance(long accountId, double newBalance) {
-        return 0;
+        if(bankAccountMap.containsKey(accountId))
+        {
+            bankAccountMap.get(accountId).setAccountBalance(newBalance);
+            return newBalance;
+        }
+        System.out.println("There is no Account Id Exist");
+        return -1;
     }
 
 
-    public void setRepository(Map repository) {
+    public void setRepository(Map<Long,BankAccount> repository) {
         this.bankAccountMap = repository;
     }
 }

@@ -9,6 +9,8 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
         Customer customer = (Customer) applicationContext.getBean("customer");
+        System.out.println();
+        System.out.println();
         System.out.println(customer.toString());
     }
 

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class BankAccountRepositoryImpl implements BankAccountRepository{
 
-    Map<Long,BankAccount> bankAccountMap = new HashMap<Long, BankAccount>();
+    Map<BankAccountIdList,BankAccount> bankAccountMap = new HashMap<BankAccountIdList, BankAccount>();
 
 
     @Override
@@ -16,5 +16,10 @@ public class BankAccountRepositoryImpl implements BankAccountRepository{
     @Override
     public double updateBalance(long accountId, double newBalance) {
         return 0;
+    }
+
+
+    public void setRepository(Map repository) {
+        this.bankAccountMap = repository;
     }
 }

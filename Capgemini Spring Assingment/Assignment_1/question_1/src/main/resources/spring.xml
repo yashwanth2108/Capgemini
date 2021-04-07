@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="customer" class="com.example.question_1.Customer">
+            <constructor-arg index="0" value="123123"/>
+            <constructor-arg index="1" value="Manav Verma"/>
+            <constructor-arg index="2" value="9900889776"/>
+            <constructor-arg index="3" ref="address"/>
+        </bean>
+        <bean id="address" class="com.example.question_1.Address">
+
+            <constructor-arg index="0" value="sita ki mathiya , chowk"/>
+            <constructor-arg index="1" value="Shahjahanpur"/>
+            <constructor-arg index="2" value="Uttar Pradesh"/>
+            <constructor-arg index="3" value="242001"/>
+            <constructor-arg index="4" value="India"/>
+        </bean>
+
+
+</beans>

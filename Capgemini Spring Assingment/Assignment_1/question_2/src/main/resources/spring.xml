@@ -3,6 +3,50 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="list" class="com.example.question_2.Questions">
+        <property name="Property">
+            <list>
+                <ref bean="question_1"/>
+                <ref bean="question_2"/>
+                <ref bean="question_3"/>
+                <ref bean="question_4"/>
+            </list>
+        </property>
+    </bean>
 
+    <bean id="set" class="com.example.question_2.Questions">
+        <property name="SetProperty">
+            <set>
+                <ref bean="question_1"/>
+                <ref bean="question_2"/>
+                <ref bean="question_3"/>
+                <ref bean="question_4"/>
+            </set>
+        </property>
+    </bean>
+
+
+
+    <bean id="question_2" class="com.example.question_2.Question">
+
+        <constructor-arg index="0" value="123123"/>
+        <constructor-arg index="1" value="Earth is round or flat"/>
+        <constructor-arg index="2" value="Earth is round"/>
+    </bean>
+    <bean id="question_1" class="com.example.question_2.Question">
+        <constructor-arg index="0" value="123125"/>
+        <constructor-arg index="1" value="sky colour is bLue ?"/>
+        <constructor-arg index="2" value="Yes"/>
+    </bean>
+    <bean id="question_3" class="com.example.question_2.Question">
+        <constructor-arg index="0" value="123126"/>
+        <constructor-arg index="1" value="Apple Colour"/>
+        <constructor-arg index="2" value="is Red"/>
+    </bean>
+    <bean id="question_4" class="com.example.question_2.Question">
+        <constructor-arg index="0" value="123127"/>
+        <constructor-arg index="1" value="Yoga is Beneficial"/>
+        <constructor-arg index="2" value="Yes, it is"/>
+    </bean>
 
 </beans>

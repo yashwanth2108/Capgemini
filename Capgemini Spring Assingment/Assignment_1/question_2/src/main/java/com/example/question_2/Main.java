@@ -1,13 +1,51 @@
 package com.example.question_2;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @SpringBootApplication
 public class Main {
 
+    private static List<Question> questionList;
+    private static Map<Integer,Question> questionMap;
+    private static Set<Question> questionSet;
+
+    public static List<Question> returnList()
+    {
+        return questionList;
+    }
+    public static Set<Question> returnSet()
+    {
+        return questionSet;
+    }
+    public static Map<Integer,Question> returnMap()
+    {
+        return questionMap;
+    }
+
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        System.out.println();
+
+        Questions questions = applicationContext.getBean("list",Questions.class);
+        questionList = questions.getQuestionList();
+        returnList().forEach(System.out::println);
+        System.out.println();
+        questions = applicationContext.getBean("set",Questions.class);
+        questionSet = questions.getQuestionSet();
+        Iterator iterator = questionSet.iterator();
+        while (iterator.hasNext())
+        {
+            System.out.println(iterator.next());
+        }
+
+
     }
 
 }

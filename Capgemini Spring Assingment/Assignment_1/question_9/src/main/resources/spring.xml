@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employee" class="com.example.question_9.Employee" init-method="initBean" destroy-method="destroyBean">
+        <property name="empId" value="123123"/>
+        <property name="empName" value="Manav Verma"/>
+        <property name="empSalary" value="223000"/>
+    </bean>
+
+</beans>

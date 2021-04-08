@@ -3,10 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="emp" class="com.example.question_6.Employee">
-        <property name="empId" value="123123"/>
-        <property name="empName" value="Manav Verma"/>
-        <property name="empSalary" value="231000"/>
-    </bean>
+
 
 </beans>

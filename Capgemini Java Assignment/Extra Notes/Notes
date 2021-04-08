@@ -1,0 +1,55 @@
+/Java Notes
+
+Transient Keyword : it is used when u don't want to save value of any variable at the time serialization , it will give default values
+
+List : interface
+
+ArrayList
+Vector
+LinkedList
+CopyOnWriteArrayList
+
+
+Map : Interface
+
+HashMap : default capacity is 16 , when u enter 13 element then size increase by 2^n , n = 4 iniitially  m = number of entries , n = size of hash map
+default value of arraylist and vector is 10 but it increase by 50% and twice
+
+
+
+Interfaces : Consumer , Predicate , Supplier , Function
+
+Predicate : which allows only one Abstract method within the Interface scope.  test()
+
+
+Development Tools
+
+PMD
+FindBugs
+CheckStyle
+SonarQube
+Jacoco
+
+Java 11 New Features
+
+List.toArray( String[]::new )
+Files.readString( Path.of(path) )
+Files.writeString( Path.of(path) , "Write text here",options)
+HttpRequest , HttpClient , HttpResponse Class
+Local Type : var
+Optional.isEmpty()
+java Demo.java  ->  run without .class file
+String.isBlank()
+String.lines()
+String.Strip()
+String.stripLeading()
+String.stripTrailing()
+String.Repeat(number)
+
+JUnit Testing
+
+dependencies :
+
+junit-jupiter-api
+junit-jupiter-engine
+junit-vintage-engine

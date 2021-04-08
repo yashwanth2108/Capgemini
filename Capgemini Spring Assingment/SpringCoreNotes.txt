@@ -1,0 +1,94 @@
+Topic : Spring
+
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>5.3.5</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>5.3.5</version>
+		</dependency>
+
+scope : 
+singleton 
+prototype
+
+ApplicationContextAware :
+BeanNameAware : 
+
+parent : inherit some bean property
+merge : for merge inherited list 
+
+AbstractApplicationContext.registerShutdownHook() : it runs when application ends , its time to destroy all beans
+
+implements IntializerBean , had function afterPropertiesSet()
+implements DisplosableBean , had function destroy()
+
+init-method :
+fucntion name
+
+destroy-method :
+function name
+
+default-init-method :
+fucntion name
+
+default-destroy-method :
+function name
+
+implements BeanPostProcessor : perform things after or before bean initialization
+implements BeanFactoryPostProcessor : perform things after bean initialization
+
+org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
+
+<context:annotation-config/>
+<context:component-scan base-package=""/>
+
+Annotations :
+Required
+Autowired
+Qualifier("id")
+Resource(name="id")
+PostConstruct
+PreDestroy
+Component
+Service
+Repository
+Controller
+
+Bean Life Cycle
+
+
+Spring Container --> Lodout Bean Definition --> Instantiate Bean --> dependencies injection --> BeanNameAware --> BeanFactoryAware --> ApplicationContextAware --> BeanPostProcessors -->  Method with PostConstruct --> InitializingBean --> Custom Configured with init-method --> Your Code Processing --> Method with PreDestroy -->  destroy Bean --> Custom Configured with destroy-method
+
+
+Aspect Oriented Programming (AOP)
+
+AOP is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns.
+
+terminologies
+Aspect  --> cross cutting method 
+Join Point  --> methods 
+Advice  -->  action taken by ascpect on the join points  
+Pointcut  --> matches the fucntion to call
+
+Spring AOP dependencies
+
+aspectjrt
+spring aop
+aspectjweaver
+
+
+
+
+
+
+
+
+

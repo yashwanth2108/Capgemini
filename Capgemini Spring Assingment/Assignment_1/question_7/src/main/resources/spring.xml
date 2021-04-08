@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="engine" class="com.example.question_7.Engine">
+        <property name="capacity" value="3200"/>
+        <property name="horsePower" value="250"/>
+        <property name="numberOfCylinders" value="6"/>
+    </bean>
+    <bean id="someCar" class="com.example.question_7.Car">
+        <property name="make" value="Audi R8"/>
+        <property name="model" value="3"/>
+        <property name="engine" value="#{engine}"/>
+        <property name="horsePower" value="#{engine.horsePower}"/>
+    </bean>
+
+    <context:component-scan base-package="com.example.question_7"/>
+
+
+</beans>

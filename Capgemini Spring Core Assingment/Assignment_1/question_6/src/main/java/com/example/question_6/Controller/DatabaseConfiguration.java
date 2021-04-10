@@ -3,7 +3,6 @@ package com.example.question_6.Controller;
 import com.example.question_6.Model.Database;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -17,6 +16,7 @@ public class DatabaseConfiguration {
 
         Database database = new Database();
 
+        @Bean(name="Database")
         public Database getDbConfig(){
             database.setDbHost(databaseProperties.getProperty("db.host.url"));
             database.setDbPort(databaseProperties.getProperty("db.port.number"));

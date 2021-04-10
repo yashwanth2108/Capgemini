@@ -12,8 +12,21 @@ import java.util.List;
 @RestController
 public class EmployeeServiceController {
 
+    Employee.ge
+
     @Autowired
     EmployeeService employeeService;
+
+//    @GetMapping(path = "/findAll")
+//    public Iterable<Employee> findAllEMployee() {
+//        return employeeService.findAll();
+//    }
+
+
+
+
+
+
 
     @PostMapping(path = "/addEmployee")
     public String addEmployee(@RequestBody Employee employee)

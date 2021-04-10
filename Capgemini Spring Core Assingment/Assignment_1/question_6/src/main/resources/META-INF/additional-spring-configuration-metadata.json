@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "db.service.name",
+      "type": "java.lang.String",
+      "description": "Description for db.service.name."
+    },
+    {
+      "name": "db.port.number",
+      "type": "java.lang.String",
+      "description": "Description for db.port.number."
+    },
+    {
+      "name": "db.password",
+      "type": "java.lang.String",
+      "description": "Description for db.password."
+    },
+    {
+      "name": "db.host.url",
+      "type": "java.lang.String",
+      "description": "Description for db.host.url."
+    }
+  ] }

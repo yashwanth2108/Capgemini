@@ -5,6 +5,8 @@ Capgemini Content Related to Training Period
 2. MongoDB
 3. Core Java
 
+ <br />
+
 ## GitHub Commands
 
 * git status                                                                  -> status
@@ -73,6 +75,8 @@ git checkout -b testing-rebase
 
 git rebase master
 
+ <br />
+ 
 ## MongoDB 
 
 BSON  -> Binary representation of JSON. (Increase speed and more space).
@@ -160,7 +164,8 @@ db.getCollection('Person').aggregate([ { $limit :  100 } , { $sort : {name : 1}]
 db.Person.aggregate([{ $unwind: "$Array" },{$Project : {age : 1, name : 1}}])
 
 
-
+ <br />
+ 
 ## Java
 
 ### Transient Keyword
@@ -205,6 +210,8 @@ SonarQube
 
 Jacoco
 
+<br />
+
 ## Java 11 New Features
 
 List.toArray( String[]::new )
@@ -244,7 +251,8 @@ junit-jupiter-engine
 junit-vintage-engine
 
 
-
+ <br />
+ 
 ## Spring Core
 
 ### scope  

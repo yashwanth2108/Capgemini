@@ -6,6 +6,7 @@ import com.example.question_2.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,9 +23,9 @@ public class AuthenticationController {
         return this.user;
     }
 
-    @GetMapping(path = "/authentication")
-    public String authenticateUser()
+    @GetMapping(path = "/authentication/{user}:{password}")
+    public String authenticateUser(@PathVariable String user , @PathVariable String password)
     {
-        return authenticationService.CheckAuthentication(user);
+        return authenticationService.CheckAuthentication(user,password);
     }
 }

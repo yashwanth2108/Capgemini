@@ -13,14 +13,14 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 
     LoginCredentials loginCredentials = new LoginCredentials();
 
-    public String CheckAuthentication(User user)
+    public String CheckAuthentication(String user,String password)
     {
         authenticationList = loginCredentials.getAuthenticationList();
         if(authenticationList!=null)
         {
-            if(authenticationList.containsKey(user.getUserName()))
+            if(authenticationList.containsKey(user))
             {
-                return authenticationList.get(user.getUserName()).equals(user.getUserPassword()) ? "Valid user" : "Invalid user";
+                return authenticationList.get(user).equals(password) ? "Valid user" : "Invalid user";
             }
         }
         return "Invalid user";

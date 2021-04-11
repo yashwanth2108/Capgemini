@@ -5,13 +5,15 @@ Capgemini Content Related to Training Period
 2. MongoDB
 3. Core Java
 
+ <br />
+
 ## GitHub Commands
 
-git status                                                                  -> status
+* git status                                                                  -> status
 
-git config --gobal user.username                                            -> add git username
+* git config --gobal user.username                                            -> add git username
 
-git config --gobal user.email                                               -> add git email
+* git config --gobal user.email                                               -> add git email
 
 git config --local user.username                                            -> add local device user
 
@@ -73,6 +75,8 @@ git checkout -b testing-rebase
 
 git rebase master
 
+ <br />
+ 
 ## MongoDB 
 
 BSON  -> Binary representation of JSON. (Increase speed and more space).
@@ -158,6 +162,186 @@ db.getCollection('Person').aggregate([ { $limit :  100 } , { $sort : {name : 1}]
 ### unwind
 
 db.Person.aggregate([{ $unwind: "$Array" },{$Project : {age : 1, name : 1}}])
+
+
+ <br />
+ 
+## Java
+
+### Transient Keyword
+
+it is used when u don't want to save value of any variable at the time serialization , it will give default values
+
+### List : interface
+
+ArrayList
+Vector
+LinkedList
+CopyOnWriteArrayList
+
+
+### Map : Interface
+
+HashMap : default capacity is 16 , when u enter 13 element then size increase by 2^n , n = 4 iniitially  m = number of entries , n = size of hash map
+default value of arraylist and vector is 10 but it increase by 50% and twice
+
+
+### Useful Interfaces 
+
+Consumer 
+
+Predicate 
+
+Supplier 
+
+Function
+
+
+
+### Development Tools
+
+PMD
+
+FindBugs
+
+CheckStyle
+
+SonarQube
+
+Jacoco
+
+<br />
+
+## Java 11 New Features
+
+List.toArray( String[]::new )
+
+Files.readString( Path.of(path) )
+
+Files.writeString( Path.of(path) , "Write text here",options)
+
+HttpRequest , HttpClient , HttpResponse Class
+
+Local Type : var
+
+Optional.isEmpty()
+
+java Demo.java  ->  run without .class file
+
+String.isBlank()
+
+String.lines()
+
+String.Strip()
+
+String.stripLeading()
+
+String.stripTrailing()
+
+String.Repeat(number)
+
+JUnit Testing
+
+### Maven dependencies for Junit
+
+junit-jupiter-api
+
+junit-jupiter-engine
+
+junit-vintage-engine
+
+
+ <br />
+ 
+## Spring Core
+
+### scope  
+
+singleton
+
+prototype
+
+
+#### parent : inherit some bean property
+#### merge : for merge inherited list 
+
+AbstractApplicationContext.registerShutdownHook() : it runs when application ends , its time to destroy all beans
+
+
+implements IntializerBean , had function afterPropertiesSet()
+implements DisplosableBean , had function destroy()
+
+
+### Post Processors Methods
+
+#### XML Based :
+
+init-method 
+
+destroy-method 
+
+default-init-method 
+
+default-destroy-method 
+
+### Post Processor Interfaces
+
+implements BeanPostProcessor : perform things after or before bean initialization
+
+implements BeanFactoryPostProcessor : perform things after bean initialization
+
+
+### XML Config and Scan
+
+###### <context:annotation-config/>
+
+###### <context:component-scan base-package=""/>
+
+### Annotations 
+
+@Required
+@Autowired
+@Qualifier("id")
+@Resource(name="id")
+@PostConstruct
+@PreDestroy
+@Component
+@Service
+@Repository
+@Controller
+
+
+### Bean Life Cycle
+
+Spring Container --> Lodout Bean Definition --> Instantiate Bean --> dependencies injection --> BeanNameAware --> BeanFactoryAware --> ApplicationContextAware --> BeanPostProcessors -->  Method with PostConstruct --> InitializingBean --> Custom Configured with init-method --> Your Code Processing --> Method with PreDestroy -->  destroy Bean --> Custom Configured with destroy-method
+
+
+### Aspect Oriented Programming (AOP)
+
+AOP is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns.
+
+### terminologies
+
+Aspect  --> cross cutting method 
+
+Join Point  --> methods 
+
+Advice  -->  action taken by ascpect on the join points  
+
+Pointcut  --> matches the fucntion to call
+
+
+### Spring AOP dependencies
+
+aspectjrt
+
+spring aop
+
+aspectjweaver
+
+
+
+
 
 
 

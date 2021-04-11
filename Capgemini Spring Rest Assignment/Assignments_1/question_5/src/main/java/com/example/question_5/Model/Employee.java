@@ -1,24 +1,30 @@
 package com.example.question_5.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Random;
 
-
+@Entity
 public class Employee {
 
+    @Id
     private Long employeeId;
     private String employeeName;
     private String employeeDesignation;
     private Double employeeSalary;
     private String employeeDepartment;
-
-    static Long generate = 1000000L;
+    private static Long generate = 1000000000L;
 
     public Employee(String employeeName, String employeeDesignation, Double employeeSalary, String employeeDepartment) {
-        this.employeeId = generate++;
+        this.employeeId = ++generate;
         this.employeeName = employeeName;
         this.employeeDesignation = employeeDesignation;
         this.employeeSalary = employeeSalary;
         this.employeeDepartment = employeeDepartment;
+    }
+
+    public Employee() {
+        
     }
 
     public Long getEmployeeId() {
@@ -59,16 +65,5 @@ public class Employee {
 
     public void setEmployeeDepartment(String employeeDepartment) {
         this.employeeDepartment = employeeDepartment;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", employeeName='" + employeeName + '\'' +
-                ", employeeDesignation='" + employeeDesignation + '\'' +
-                ", employeeSalary=" + employeeSalary +
-                ", employeeDepartment='" + employeeDepartment + '\'' +
-                '}';
     }
 }

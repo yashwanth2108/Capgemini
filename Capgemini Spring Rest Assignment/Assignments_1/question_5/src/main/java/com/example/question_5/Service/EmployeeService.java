@@ -1,14 +1,44 @@
 package com.example.question_5.Service;
 
+
 import com.example.question_5.Model.Employee;
-import org.springframework.data.repository.CrudRepository;
+import com.example.question_5.Model.EmployeeList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Optional;
 
-public interface EmployeeService extends CrudRepository<Employee,Long> {
-    public String addEmployee(Employee employee);
-    public String searchEmployee(Long empId);
-    public String deleteEmployee(Long empId);
-    public List<Employee> finAllEmployee();
-    public String updateEmployeeDetails(Employee employee);
+@Service
+public class EmployeeService {
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+
+    ArrayList<Employee> employeeList = new ArrayList<>();
+
+
+    public void addEmployee(Employee employee) {
+        employeeRepository.save(employee);
+    }
+
+    public Optional<Employee> searchEmployee(Long empId) {
+
+        return employeeRepository.findById(empId);
+    }
+
+    public void deleteEmployee(Long empId) {
+        employeeRepository.deleteById(empId);
+    }
+
+    public ArrayList<Employee> findAllEmployee() {
+
+        employeeRepository.findAll().forEach(employeeList::add);
+        return employeeList;
+    }
+    public void updateEmployee(Employee employee) {
+        employeeRepository.save(employee);
+    }
+
 }

@@ -1,26 +1,31 @@
-package com.example.question_7.Model;
+package com.example.question_8.Model;
 
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.sound.sampled.Line;
+import java.util.ArrayList;
+import java.util.List;
 
-@Document(collection = "Orders")
+
+@Document(collection = "OrderPro")
 public class Order {
 
     @Id
     private long orderId;
     private String orderName;
-    private User user;
+    private Customer customer;
     private double orderPrice;
     private String deliveryAddress;
+    private List<LineItem> lineItems = new ArrayList<>();
 
-    public Order(long orderId,String orderName, double orderPrice , User user) {
+    public Order(long orderId,String orderName, double orderPrice , Customer customer) {
         this.orderId = orderId;
         this.orderName = orderName;
-        this.user=user;
+        this.customer = customer;
         this.orderPrice = orderPrice;
-        this.deliveryAddress = user.getUserAddress();
+        this.deliveryAddress = customer.getcustomerAddress();
     }
     public Order()
     {
@@ -43,12 +48,12 @@ public class Order {
         this.orderName = orderName;
     }
 
-    public User getUser() {
-        return user;
+    public Customer getcustomer() {
+        return customer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setcustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public double getOrderPrice() {
@@ -66,4 +71,18 @@ public class Order {
     public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
+
+    public void addLineItem(LineItem lineItem)
+    {
+        lineItems.add(lineItem);
+    }
+    public void removeLine(LineItem lineItem)
+    {
+        lineItems.removeIf( p -> p.getItemId() == lineItem.getItemId());
+    }
+    public List<LineItem> getLineItems()
+    {
+        return lineItems;
+    }
+
 }

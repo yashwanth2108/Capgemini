@@ -11,14 +11,11 @@ public class Product {
     private int productId;
     private String productName;
     private double productPrice;
-    private String deliveryAddress;
 
-    public Product(int productId, String productName, double productPrice , String deliveryAddress) {
+    public Product(int productId, String productName, double productPrice) {
         this.productId = productId;
         this.productName = productName;
-        // this.user = user;
         this.productPrice = productPrice;
-        this.deliveryAddress = deliveryAddress;
     }
 
     public int getproductId() {
@@ -37,14 +34,6 @@ public class Product {
         this.productName = productName;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-
     public double getproductPrice() {
         return productPrice;
     }
@@ -53,11 +42,4 @@ public class Product {
         this.productPrice = productPrice;
     }
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
 }

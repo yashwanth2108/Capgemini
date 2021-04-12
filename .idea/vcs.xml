@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Capgemini Spring JDBC Assignment/Assignment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Capgemini Spring JDBC Assignment/RoughWork/employee" vcs="Git" />
   </component>
 </project>

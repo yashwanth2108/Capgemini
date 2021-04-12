@@ -2,6 +2,8 @@ package com.example.question_9.Repository;
 
 import com.example.question_9.Model.Customer;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CutomerServiceRepository extends CrudRepository<Customer,Integer> {
+@Repository
+public interface CustomerServiceRepository extends CrudRepository<Customer,Integer> {
 }

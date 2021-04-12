@@ -1,36 +1,39 @@
 package com.example.question_9.Service;
 
 import com.example.question_9.Model.Customer;
-import com.example.question_9.Repository.CutomerServiceRepository;
+import com.example.question_9.Repository.CustomerServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class CustomerServiceImpl {
 
 
     @Autowired
-    CutomerServiceRepository cutomerServiceRepository;
+    CustomerServiceRepository customerServiceRepository;
+
 
     public void addCustomer(Customer customer) {
-        cutomerServiceRepository.save(customer);
+        customerServiceRepository.save(customer);
     }
 
     public Optional<Customer> searchCustomer(Integer custId) {
 
-        return cutomerServiceRepository.findById(custId);
+        return customerServiceRepository.findById(custId);
     }
 
     public void deleteCustomer(Integer custId) {
-        cutomerServiceRepository.deleteById(custId);
+        customerServiceRepository.deleteById(custId);
     }
 
     public Iterable<Customer> findAllCustomer() {
 
-        return cutomerServiceRepository.findAll();
+        return customerServiceRepository.findAll();
     }
     public void updateCustomer(Customer customer) {
-        cutomerServiceRepository.save(customer);
+        customerServiceRepository.save(customer);
     }
 
 }

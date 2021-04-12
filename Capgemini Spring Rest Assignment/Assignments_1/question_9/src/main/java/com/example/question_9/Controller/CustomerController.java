@@ -8,11 +8,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+@RestController
 public class CustomerController {
 
     @Autowired
     CustomerServiceImpl customerService;
-    
+
+    Customer adCustomer = new Customer(2342,"Manav Verma");
+
+    @GetMapping(path = "/adCustomer")
+    public Customer addCustomer() {
+        customerService.addCustomer(adCustomer);
+        return adCustomer;
+    }
+
+
     @PostMapping(path = "/addCustomer")
     public void addCustomer(@RequestBody Customer customer) {
         customerService.addCustomer(customer);

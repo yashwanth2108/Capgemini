@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 public class EmployeeDaoSupportServiceImpl extends JdbcDaoSupport implements EmployeeDaoSupportService {
+
+
+
     @Override
     public void insert(Employee employee)
     {
@@ -25,6 +28,7 @@ public class EmployeeDaoSupportServiceImpl extends JdbcDaoSupport implements Emp
                 ,employee.getManager());
     }
 
+
     @Override
     public Employee findByEmployeeId(int empId)
     {
@@ -37,16 +41,43 @@ public class EmployeeDaoSupportServiceImpl extends JdbcDaoSupport implements Emp
         }
         return new Employee(000,"Null",00,"null",000,"null");
     }
+
+
     @Override
     public List<Employee> findAllEmployee()
     {
         String sql = "select * from employee";
         return getJdbcTemplate().query(sql,new EmployeeRowMapper());
     }
+
+
     @Override
     public List<Employee> findAllEmployees()
     {
         String sql = "select * from employee";
         return getJdbcTemplate().query(sql,new BeanPropertyRowMapper(Employee.class));
+    }
+
+    @Override
+    public Employee findByEmployeedId(int emp_id)
+    {
+        String sql = "select * from employee";
+        return getJdbcTemplate().query(sql,new BeanPropertyRowMapper<Employee>()).stream().filter(p -> p.getEmployee_id() == emp_id).toList().get(0);
+    }
+
+
+    @Override
+    public long getCount()
+    {
+        String sql = "select count(employee_id) as count from employee ";
+        Map<String,Object> map = getJdbcTemplate().queryForMap(sql);
+        return (long) map.get("count");
+    }
+
+    @Override
+    public List<Employee> findAllEmployeeS()
+    {
+        String sql = "select * from employee";
+        return getJdbcTemplate().query(sql,new EmployeeResultSetExtractor());
     }
 }

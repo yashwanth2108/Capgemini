@@ -9,4 +9,7 @@ public interface EmployeeDaoSupportService {
     public Employee findByEmployeeId(int empId);
     public List<Employee> findAllEmployee();
     public List<Employee> findAllEmployees();
+    public Employee findByEmployeedId(int emp_id);
+    public List<Employee> findAllEmployeeS();
+    public long getCount();
 }

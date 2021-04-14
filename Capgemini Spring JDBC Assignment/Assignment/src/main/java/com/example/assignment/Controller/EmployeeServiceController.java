@@ -41,4 +41,19 @@ public class EmployeeServiceController {
         return employeeRepository.findByEmployeeId(empId);
     }
 
+    @GetMapping(path = "/findAllEmployeeS")
+    public List<Employee> findAllEmployeeS()
+    {
+        return employeeRepository.findAllEmployeeS();
+    }
+
+    @GetMapping(path = "/findByEmployeeDId/{empId}")
+    public Employee findByEmployeeDId(@PathVariable int empId)
+    {
+        return employeeRepository.findByEmployeedId(empId);
+    }
+
+    @GetMapping(path = "/getCount")
+    public long getCount(){return employeeRepository.getCount();}
+
 }

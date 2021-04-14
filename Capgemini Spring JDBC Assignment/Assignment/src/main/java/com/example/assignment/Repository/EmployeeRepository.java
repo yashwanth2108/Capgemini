@@ -52,8 +52,17 @@ public class EmployeeRepository {
     }
 
     // question 5
+    public Employee findByEmployeedId(int emp_id){return employeeDaoSupportService.findByEmployeedId(emp_id);}
+
+    // question 6
     public Employee findByEmployeeId(int empId)
     {
         return employeeDaoSupportService.findByEmployeeId(empId);
     }
+
+    // question 7
+    public long getCount(){return employeeDaoSupportService.getCount();}
+
+    // question 8
+    public List<Employee> findAllEmployeeS(){return employeeDaoSupportService.findAllEmployeeS();}
 }

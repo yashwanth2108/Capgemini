@@ -5,6 +5,7 @@ package com.example.assignment.DAO.Impl;
 import com.example.assignment.DAO.ServiceInterface.EmployeeDaoSupportService;
 import com.example.assignment.Model.Employee;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +27,14 @@ public class EmployeeDaoSupportServiceImpl extends JdbcDaoSupport implements Emp
     @Override
     public Employee findByEmployeeId(int empId)
     {
-        String sql = "select * from employee where employee_id = ? ;";
-        List<Employee> list = (List<Employee>) getJdbcTemplate().query(sql,new EmployeeRowMapper());
+        String sql = "select * from employee";
+        List<Employee> list = getJdbcTemplate().query(sql,new EmployeeResultSetExtractor());
         for(Employee employee1 : list)
         {
-
             if(employee1.getEmployee_id()==empId)
                 return employee1;
         }
-        return new Employee(123,"Hello",24,"world",8080,"nature");
+        return new Employee(000,"Null",00,"null",000,"null");
     }
     @Override
     public List<Employee> findAllEmployee()

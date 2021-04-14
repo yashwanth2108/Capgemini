@@ -14,40 +14,44 @@ public class EmployeeRepository {
 
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
 
-//    @Autowired
-//    JdbcTemplate jdbcTemplate;
+
 
     EmployeeDaoSupportService employeeDaoSupportService = (EmployeeDaoSupportService) applicationContext.getBean("employeeDaoSupportService");
-
     EmployeeNamedParameterDaoSupportService employeeNamedParameterDaoSupportService = (EmployeeNamedParameterDaoSupportService) applicationContext.getBean("employeeNamedParameterDaoSupportService");
 
+
+
+    // Operation Performed
+
+    // question 1
     public String addEmployee(Employee employee)
     {
         employeeDaoSupportService.insert(employee);
         return "1 Row Updated in DataBase";
     }
 
+    // question 2
     public String addEmployees(Employee employee)
     {
         employeeNamedParameterDaoSupportService.insert(employee);
         return "1 Row Updated in DataBase";
     }
 
-    public Employee findByEmployeeId(int empId)
-    {
-        return employeeDaoSupportService.findByEmployeeId(empId);
-    }
-
-//    public List<String> findAllEmployeeName()
-//    {
-//        return new ArrayList<>(jdbcTemplate.queryForList("select name from employee;", String.class));
-//    }
+    // question 3
     public List<Employee> findAllEmployee()
     {
         return employeeDaoSupportService.findAllEmployee();
     }
+
+    // question 4
     public List<Employee> findAllEmployees()
     {
         return employeeDaoSupportService.findAllEmployees();
+    }
+
+    // question 5
+    public Employee findByEmployeeId(int empId)
+    {
+        return employeeDaoSupportService.findByEmployeeId(empId);
     }
 }

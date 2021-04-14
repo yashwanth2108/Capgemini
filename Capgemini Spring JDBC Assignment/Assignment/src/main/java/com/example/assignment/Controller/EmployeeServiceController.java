@@ -23,12 +23,6 @@ public class EmployeeServiceController {
         return employeeRepository.addEmployee(employee);
     }
 
-    @GetMapping(path = "/findByEmployeeId/{empId}")
-    public Employee findByEmployeeId(@PathVariable int empId)
-    {
-        return employeeRepository.findByEmployeeId(empId);
-    }
-
     @GetMapping(path = "/findAllEmployee")
     public List<Employee> findAllEmployee()
     {
@@ -41,9 +35,10 @@ public class EmployeeServiceController {
         return employeeRepository.findAllEmployees();
     }
 
-//    @GetMapping(path = "/allEmployeesName")
-//    public List<String> findAllEmployeeName()
-//    {
-//        return employeeRepository.findAllEmployeeName();
-//    }
+    @GetMapping(path = "/findByEmployeeId/{empId}")
+    public Employee findByEmployeeId(@PathVariable int empId)
+    {
+        return employeeRepository.findByEmployeeId(empId);
+    }
+
 }

@@ -6,8 +6,7 @@ import com.example.assignment.DAO.ServiceInterface.EmployeeDaoSupportService;
 import com.example.assignment.Model.Employee;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDaoSupportServiceImpl extends JdbcDaoSupport implements EmployeeDaoSupportService {

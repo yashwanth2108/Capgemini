@@ -1,6 +1,8 @@
 package com.example.assignment.Model;
 
+
 public class Employee {
+
     private int employee_id;
     private String employee_name;
     private int age;

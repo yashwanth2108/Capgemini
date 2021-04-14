@@ -1,0 +1,13 @@
+Topic : Spring JDBC
+
+JdbcTemplate : automatically create connection and give functions
+
+getJdbcTemplate()
+
+JdbcDaoSupport class : update methods
+
+NamedParameterJdbcDaoSupport
+
+RowMapper<Class> interface : it will get data as a result set
+
+new BeanPropertyRowMapper(class)

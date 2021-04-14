@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class EmployeeNameParameterNamedParameterDaoSupportServiceImpl extends NamedParameterJdbcDaoSupport implements EmployeeNamedParameterDaoSupportService {
+
+
     @Override
     public void insert(Employee employee) {
         String sql = "INSERT INTO EMPLOYEE "+"(EMPLOYEE_ID,NAME,AGE,DESIGNATION,DEPT_CODE,MANAGER) VALUES (:employeeId, :name, :age, :designation, :dept_code, :manager)";
@@ -23,10 +25,12 @@ public class EmployeeNameParameterNamedParameterDaoSupportServiceImpl extends Na
         getNamedParameterJdbcTemplate().update(sql,parameters);
     }
 
+
     @Override
     public Employee findByEmployeeId(int empId) {
         return null;
     }
+
 
     @Override
     public List<Employee> findAllEmployee() {

@@ -36,11 +36,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> displayAllOrder()
-    {
-        return orderRepository.findAll();
-
-    }
+    public List<Order> displayAllOrder() { return orderRepository.findAll(); }
 
     @Override
     public String deleteOrder(Long orderId)

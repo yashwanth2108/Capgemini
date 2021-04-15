@@ -1,0 +1,20 @@
+Spring Secuirty :
+
+WebSecuirtyConfigureAdapter  :   class to add method for authentication like configure( AuthenticationManagerBuilder auth )
+
+@EnableWebSecurity
+
+PasswordEncoder : encodinng password q
+
+AuthenticationProvider : interface
+
+Authentication : interface  - > authenticate()
+
+ProviderManager class implements AuthenticationManager ->  authenticate()
+
+UserDetailService -> loadUserByUsername()
+
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>

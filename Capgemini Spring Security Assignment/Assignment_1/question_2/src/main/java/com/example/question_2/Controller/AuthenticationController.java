@@ -9,15 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping(path = "/")
-public class AuthenticationController implements ErrorController {
+public class AuthenticationController {
 
-    @Override
-    @RequestMapping(path = "/error")
-    @ResponseBody
-    public String getErrorPath() {
-        // TODO Auto-generated method stub
-        return "No Mapping Found";
-    }
     @GetMapping(path = "Error")
     public String getWorld()
     {

@@ -49,11 +49,11 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/perform_login")
                 .loginProcessingUrl("/perform_login")
                 .defaultSuccessUrl("/go_home")
-                .failureUrl("/perform_login?error=true" )
+                .permitAll()
                 .and()
                 .logout()
                 .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID");
+                .deleteCookies("JSESSIONID").permitAll();
     }
 
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/")
 public class AuthenticationController {
 
-    @GetMapping(path = "Error")
+    @GetMapping(path = "wrong")
     public String getWorld()
     {
         return "error";

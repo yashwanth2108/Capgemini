@@ -69,6 +69,7 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/perform_login")
                 .loginProcessingUrl("/perform_login")
                 .defaultSuccessUrl("/go_home")
+                .failureForwardUrl("/perform_login")
                 .permitAll()
                 .and()
                 .logout()

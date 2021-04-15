@@ -18,6 +18,9 @@
 
       <div class="border border-secondary p-3 rounded">
 
+         <div th:if="${param.error}">
+            <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+         </div>
          <p>Access to Application</p>
          <div th:if="${param.error}" class="alert alert-error">
             Invalid username and password.

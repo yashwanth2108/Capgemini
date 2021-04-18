@@ -21,14 +21,15 @@ public class AuthenticationController {
     }
 
     @GetMapping(path = "")
-    public String getLogout()
+    public String defaultLogin()
     {
         return "login";
     }
+
     @GetMapping(path = "/error")
-    public String getError()
+    public String getLogout()
     {
-        return ("<h1>Wrong UserName and Password</h1>");
+        return ("logout");
     }
 
 

@@ -1,4 +1,4 @@
-package com.example.question_1.Security.Configuration;
+package com.example.question_5.Configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -6,32 +6,27 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
-public class MyAuthenticationConfiguration extends WebSecurityConfigurerAdapter {
+public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
+
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    AccessDeniedHandler accessDeniedHandler;
+    AuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-            auth.inMemoryAuthentication()
+        auth.inMemoryAuthentication()
                 .withUser("user")
-                .password(passwordEncoder.encode("user123"))
+                .password("user123")
                 .roles("User")
                 .and()
                 .withUser("admin")
-                .password(passwordEncoder.encode("admin123"))
+                .password("admin123")
                 .roles("Admin");
     }
 
@@ -50,27 +45,39 @@ public class MyAuthenticationConfiguration extends WebSecurityConfigurerAdapter 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/**")
+                .antMatchers("/**","index","/css/*","/js/*")
                 .permitAll()
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .permitAll()
+                .successHandler(authenticationSuccessHandler)
+                .and()
+                .rememberMe()
+                .rememberMeParameter("remember-me")
+                .tokenValiditySeconds(400)
+                .and()
+                .logout()
+                .logoutUrl("logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET"))
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID","remember-me")
+                .logoutSuccessUrl("/login")
+                .permitAll()
+                ;
     }
 
-    @Override
-    protected UserDetailsService userDetailsService() {
-        return userDetailsService;
-    }
-
-
-
-    // BCryptPasswordEncoder
 
     @Bean
     public PasswordEncoder getPassword()
     {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance();
     }
 
 }

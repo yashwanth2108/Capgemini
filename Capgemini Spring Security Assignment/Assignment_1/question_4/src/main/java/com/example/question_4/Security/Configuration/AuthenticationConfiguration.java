@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -23,56 +25,49 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
+    @Autowired
+    AuthenticationSuccessHandler authenticationSuccessHandler;
 
-
-    // default database
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//        .dataSource(dataSource)
-//        .withDefaultSchema()
-//        .withUser(
-//                User.withUsername("user1")
-//                .password("user1")
-//                .roles("User")
-//        ).withUser(
-//                User.withUsername("user2")
-//                        .password("user12")
-//                        .roles("User")
-//        ).withUser(
-//                User.withUsername("user3")
-//                        .password("user123")
-//                        .roles("User")
-//        ).withUser(
-//                User.withUsername("user4")
-//                        .password("user1234")
-//                        .roles("User")
-//        ).withUser(
-//                User.withUsername("admin")
-//                        .password("admin")
-//                        .roles("Admin")
-//        );
-//    }
-
-
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/perform_login")
-                .loginProcessingUrl("/perform_login")
+    /*
+     .antMatchers("/admin","/local","/user").hasRole("Admin")
+                .antMatchers("/user","/local").hasRole("User")
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/go_home")
-                .failureUrl("/error")
-                .failureForwardUrl("/perform_login")
-                .permitAll()
+                .failureUrl("/perform_login?error=true")
                 .and()
                 .logout()
                 .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID").permitAll();
+                .deleteCookies("JSESSIONID");
+     */
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/**","index","/css/*","/js/*")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .permitAll()
+                .successHandler(authenticationSuccessHandler)
+                .and()
+                .rememberMe()
+                .rememberMeParameter("remember-me")
+                .tokenValiditySeconds(400)
+                .and()
+                .logout()
+                .logoutUrl("logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET"))
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID","remember-me")
+                .logoutSuccessUrl("/login")
+                .permitAll();
     }
 
 

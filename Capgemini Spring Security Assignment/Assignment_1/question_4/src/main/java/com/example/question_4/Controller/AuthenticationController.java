@@ -13,23 +13,28 @@ public class AuthenticationController {
     {
         return "error";
     }
+
     @GetMapping(path = "")
     public String login()
     {
         return "login";
     }
 
-    @GetMapping(path = "/go_home")
-    public String getData()
+    @GetMapping(path = "/home")
+    public String getData() { return "home"; }
+
+    @GetMapping(path = "/user")
+    public String getUser()
     {
         return "home";
     }
 
-    @GetMapping(path = "/perform_logout")
-    public String getLocalData()
+    @GetMapping(path = "/admin")
+    public String getAdmin()
     {
-        return "logout";
+        return "home";
     }
+
 
     @GetMapping(path = "/error")
     public String getError()

@@ -1,13 +1,13 @@
-package com.example.question_2.Configuration;
+package com.example.question_5.Configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
@@ -40,19 +40,32 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/**","index","/css/*","/js/*")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/perform_login")
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/go_home")
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
                 .permitAll()
+                .defaultSuccessUrl("/home",true)
+                .and()
+                .rememberMe()
+                .rememberMeParameter("remember-me")
+                .tokenValiditySeconds(400)
                 .and()
                 .logout()
-                .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID").permitAll();
+                .logoutUrl("logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET"))
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID","remember-me")
+                .logoutSuccessUrl("/login")
+                .permitAll()
+                ;
     }
 
 

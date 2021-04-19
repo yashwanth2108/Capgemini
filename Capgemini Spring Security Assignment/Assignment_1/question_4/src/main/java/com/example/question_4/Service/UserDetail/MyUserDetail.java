@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+
 public class MyUserDetail implements UserDetails {
 
     private User user;

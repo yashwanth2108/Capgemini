@@ -28,7 +28,7 @@ public class RabbitMQConfiguration {
     @Bean
     Binding binding(Queue queue,TopicExchange exchange)
     {
-        return BindingBuilder.bind((Exchange) queue).to(exchange).with("message_routing_key");
+        return BindingBuilder.bind(queue).to(exchange).with("message_routing_key");
     }
 
     @Bean

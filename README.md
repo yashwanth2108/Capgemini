@@ -9,6 +9,7 @@ Capgemini Content Related to Training Period
 
 ## GitHub Commands
 
+```javascript
 * git status                                                                  -> status
 
 * git config --gobal user.username                                            -> add git username
@@ -76,6 +77,7 @@ Capgemini Content Related to Training Period
 * git rebase master
 
  <br />
+ ```
  
 ## MongoDB 
 
@@ -91,6 +93,7 @@ Capgemini Content Related to Training Period
 
 ## Mongo Shell Commands
 
+```javascript
 * show dbs -> show databases
 
 * use first-test  -> u can use an Database that doesn't exist
@@ -122,28 +125,29 @@ Capgemini Content Related to Training Period
 * db.createCollection('Name',{ capped : true , size: give_size , max : give_limit })                           -> CApped Collection , it will limit the collection size
 
 * db.users.find( { $or: [ { name : 'Manav' } , {  Age : {$gt : 29 } } ] } )                                    -> filter using Or and And opretator 
-
+```
 
 ## Aggregation  
 
 ### match
 
+```javascript
 db.Person.aggregate([{ $match: {tags : { $size : 3 } }}])
-
+```
 ### group
-
+```javascript
 db.Person.aggregate([{ $group : { _id : { age : "$age" , gender : "$gender" } } }])
-
+```
 ### project
-
+```javascript
 db.getCollection('Person').aggregate([{$project : {name : 1}])
-
+```
 ### sort
-
+```javascript
 db.getCollection('Person').aggregate([{$sort : {name : 1}])
-
+```
 ### count
-
+```javascript
 db.Person.aggregate([{ $count: "age" }])
 
 db.Person.aggregate([{ $count: "age" }]).toArray().length
@@ -153,16 +157,16 @@ db.Person.aggregate([{ $count: "age" }]).itcount()                              
 db.Person.aggregate([{ $count: "total" }])
 
 db.Person.find({}).count()                                                                                      --> much faster
-
+```
 ### limit
-
+```javascript
 db.getCollection('Person').aggregate([ { $limit :  100 } , { $sort : {name : 1}])
-
+```
 
 ### unwind
-
+```javascript
 db.Person.aggregate([{ $unwind: "$Array" },{$Project : {age : 1, name : 1}}])
-
+```
 
  <br />
  
@@ -217,6 +221,7 @@ default value of arraylist and vector is 10 but it increase by 50% and twice
 
 ## Java 11 New Features
 
+```javascript
 * List.toArray( String[]::new )
 
 * Files.readString( Path.of(path) )
@@ -244,6 +249,7 @@ default value of arraylist and vector is 10 but it increase by 50% and twice
 * String.Repeat(number)
 
 * JUnit Testing
+```
 
 ### Maven dependencies for Junit
 
@@ -268,12 +274,12 @@ default value of arraylist and vector is 10 but it increase by 50% and twice
 #### parent : inherit some bean property
 #### merge : for merge inherited list 
 
+```javascript
 AbstractApplicationContext.registerShutdownHook() : it runs when application ends , its time to destroy all beans
-
 
 implements IntializerBean , had function afterPropertiesSet()
 implements DisplosableBean , had function destroy()
-
+```
 
 ### Post Processors Methods
 
@@ -302,6 +308,7 @@ implements DisplosableBean , had function destroy()
 
 ### Annotations 
 
+```javascript
 * @Required
 * @Autowired
 * @Qualifier("id")
@@ -312,7 +319,7 @@ implements DisplosableBean , had function destroy()
 * @Service
 * @Repository
 * @Controller
-
+```
 
 ### Bean Life Cycle
 
